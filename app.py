@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request,jsonify
-from flask_cors import CORS,cross_origin
+from flask_cors import CORS,cross_origin # suppose u r trying to deploy your complete project on us region but u r hitting url from india at that time u need to import cross to cenable cross for all routes
 import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
 
-app = Flask(__name__)
+app = Flask(__name__) # f
 
 @app.route('/',methods=['GET'])  # route to display the home page
 @cross_origin()
 def homePage():
-    return render_template("index.html")
-
+    return render_template("index.html")# render_template is use to execute the html code
+# to reach out this function we need to define a path or endpoint so that u can reach from outside
 @app.route('/review',methods=['POST','GET']) # route to show the review comments in a web UI
 @cross_origin()
 def index():
